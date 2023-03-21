@@ -56,8 +56,12 @@ export function getScopeAndLangFromPath({
 }
 
 export function resolveConfigPaths(config: Config, sourceRoot: string) {
-  const resolvePath = (configPath) =>
-    path.resolve(process.cwd(), sourceRoot, configPath);
+  const resolvePath = (configPath) => {
+    return config.isExternalTranslations
+      ? path.resolve(process.cwd(), configPath)
+      : path.resolve(process.cwd(), sourceRoot, configPath);
+  };
+
   config.input = config.input.map(resolvePath);
   ['output', 'translationsPath'].forEach((prop) => {
     config[prop] = resolvePath(config[prop]);

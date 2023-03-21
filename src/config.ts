@@ -33,6 +33,9 @@ export function defaultConfig(
     // Whether to sort the keys
     sort: false,
 
+    // If translations from another repo
+    isExternalTranslations: false,
+
     /**
      *  Relevant only for the Extractor
      */
