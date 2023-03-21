@@ -3,6 +3,7 @@ export type Config = {
   config?: string;
   project?: string;
   translationsPath?: string;
+  isExternalTranslations?: boolean;
   langs?: string[];
   defaultValue?: undefined | string;
   replace?: boolean;
